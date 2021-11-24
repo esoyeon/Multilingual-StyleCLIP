@@ -1,0 +1,5 @@
+/.idea/
+/latents/
+/results/
+/mine/
+*.DS_Store
