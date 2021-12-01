@@ -2,4 +2,5 @@
 /latents/
 /results/
 /mine/
+/data/weights/
 *.DS_Store
