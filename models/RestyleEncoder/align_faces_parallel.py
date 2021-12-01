@@ -25,15 +25,15 @@ import dlib
 import multiprocessing as mp
 import math
 
-from configs.paths_config import model_paths
+from models.RestyleEncoder.configs.paths_config import model_paths
 
 SHAPE_PREDICTOR_PATH = model_paths["shape_predictor"]
 
 
 def get_landmark(filepath, predictor):
     """get landmark with dlib
-	:return: np.array shape=(68, 2)
-	"""
+        :return: np.array shape=(68, 2)
+        """
     detector = dlib.get_frontal_face_detector()
 
     img = dlib.load_rgb_image(filepath)
@@ -44,7 +44,8 @@ def get_landmark(filepath, predictor):
         shape = predictor(img, d)
 
     if not shape:
-        raise Exception("Could not find face in image! Please try another image!")
+        raise Exception(
+            "Could not find face in image! Please try another image!")
 
     t = list(shape.parts())
     a = []
@@ -56,9 +57,9 @@ def get_landmark(filepath, predictor):
 
 def align_face(filepath, predictor, output_size=256, transform_size=256):
     """
-	:param filepath: str
-	:return: PIL Image
-	"""
+        :param filepath: str
+        :return: PIL Image
+        """
 
     lm = get_landmark(filepath, predictor)
 
@@ -98,7 +99,8 @@ def align_face(filepath, predictor, output_size=256, transform_size=256):
     # Shrink.
     shrink = int(np.floor(qsize / output_size * 0.5))
     if shrink > 1:
-        rsize = (int(np.rint(float(img.size[0]) / shrink)), int(np.rint(float(img.size[1]) / shrink)))
+        rsize = (int(np.rint(float(img.size[0]) / shrink)),
+                 int(np.rint(float(img.size[1]) / shrink)))
         img = img.resize(rsize, PIL.Image.ANTIALIAS)
         quad /= shrink
         qsize /= shrink
@@ -120,19 +122,23 @@ def align_face(filepath, predictor, output_size=256, transform_size=256):
            max(pad[3] - img.size[1] + border, 0))
     if enable_padding and max(pad) > border - 4:
         pad = np.maximum(pad, int(np.rint(qsize * 0.3)))
-        img = np.pad(np.float32(img), ((pad[1], pad[3]), (pad[0], pad[2]), (0, 0)), 'reflect')
+        img = np.pad(np.float32(img),
+                     ((pad[1], pad[3]), (pad[0], pad[2]), (0, 0)), 'reflect')
         h, w, _ = img.shape
         y, x, _ = np.ogrid[:h, :w, :1]
         mask = np.maximum(1.0 - np.minimum(np.float32(x) / pad[0], np.float32(w - 1 - x) / pad[2]),
                           1.0 - np.minimum(np.float32(y) / pad[1], np.float32(h - 1 - y) / pad[3]))
         blur = qsize * 0.02
-        img += (scipy.ndimage.gaussian_filter(img, [blur, blur, 0]) - img) * np.clip(mask * 3.0 + 1.0, 0.0, 1.0)
+        img += (scipy.ndimage.gaussian_filter(img,
+                [blur, blur, 0]) - img) * np.clip(mask * 3.0 + 1.0, 0.0, 1.0)
         img += (np.median(img, axis=(0, 1)) - img) * np.clip(mask, 0.0, 1.0)
-        img = PIL.Image.fromarray(np.uint8(np.clip(np.rint(img), 0, 255)), 'RGB')
+        img = PIL.Image.fromarray(
+            np.uint8(np.clip(np.rint(img), 0, 255)), 'RGB')
         quad += pad[:2]
 
     # Transform.
-    img = img.transform((transform_size, transform_size), PIL.Image.QUAD, (quad + 0.5).flatten(), PIL.Image.BILINEAR)
+    img = img.transform((transform_size, transform_size),
+                        PIL.Image.QUAD, (quad + 0.5).flatten(), PIL.Image.BILINEAR)
     if output_size < transform_size:
         img = img.resize((output_size, output_size), PIL.Image.ANTIALIAS)
 
@@ -184,13 +190,15 @@ def run(args):
     for root, dirs, files in os.walk(root_path):
         for file in files:
             file_path = os.path.join(root, file)
-            fname = os.path.join(out_crops_path, os.path.relpath(file_path, root_path))
+            fname = os.path.join(
+                out_crops_path, os.path.relpath(file_path, root_path))
             res_path = '{}.jpg'.format(os.path.splitext(fname)[0])
             if os.path.splitext(file_path)[1] == '.txt' or os.path.exists(res_path):
                 continue
             file_paths.append((file_path, res_path))
 
-    file_chunks = list(chunks(file_paths, int(math.ceil(len(file_paths) / args.num_threads))))
+    file_chunks = list(chunks(file_paths, int(
+        math.ceil(len(file_paths) / args.num_threads))))
     print(len(file_chunks))
     pool = mp.Pool(args.num_threads)
     print('Running on {} paths\nHere we goooo'.format(len(file_paths)))
