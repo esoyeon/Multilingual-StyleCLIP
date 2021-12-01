@@ -92,7 +92,7 @@ def convert_images_from_uint8(images, drange=[-1, 1], nhwc_to_nchw=False):
 
 
 class Manipulator():
-    def __init__(self, dataset_name='ffhq', sess=None, file_path):
+    def __init__(self, file_path, dataset_name='ffhq', sess=None):
         self.file_path = file_path
         self.img_path = self.file_path+'npy/'+dataset_name+'/'
         self.model_path = self.file_path+'model/'
