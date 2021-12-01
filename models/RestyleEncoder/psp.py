@@ -6,9 +6,9 @@ import torch
 from torch import nn
 
 from models.stylegan2.model import Generator
-from configs.paths_config import model_paths
+from models.RestyleEncoder.configs.paths_config import model_paths
 from models.encoders import fpn_encoders, restyle_psp_encoders
-from utils.model_utils import RESNET_MAPPING
+from models.RestyleEncoder.utils.model_utils import RESNET_MAPPING
 
 
 class pSp(nn.Module):
@@ -19,35 +19,45 @@ class pSp(nn.Module):
         self.n_styles = int(math.log(self.opts.output_size, 2)) * 2 - 2
         # Define architecture
         self.encoder = self.set_encoder()
-        self.decoder = Generator(self.opts.output_size, 512, 8, channel_multiplier=2)
+        self.decoder = Generator(
+            self.opts.output_size, 512, 8, channel_multiplier=2)
         self.face_pool = torch.nn.AdaptiveAvgPool2d((256, 256))
         # Load weights if needed
         self.load_weights()
 
     def set_encoder(self):
         if self.opts.encoder_type == 'GradualStyleEncoder':
-            encoder = fpn_encoders.GradualStyleEncoder(50, 'ir_se', self.n_styles, self.opts)
+            encoder = fpn_encoders.GradualStyleEncoder(
+                50, 'ir_se', self.n_styles, self.opts)
         elif self.opts.encoder_type == 'ResNetGradualStyleEncoder':
-            encoder = fpn_encoders.ResNetGradualStyleEncoder(self.n_styles, self.opts)
+            encoder = fpn_encoders.ResNetGradualStyleEncoder(
+                self.n_styles, self.opts)
         elif self.opts.encoder_type == 'BackboneEncoder':
-            encoder = restyle_psp_encoders.BackboneEncoder(50, 'ir_se', self.n_styles, self.opts)
+            encoder = restyle_psp_encoders.BackboneEncoder(
+                50, 'ir_se', self.n_styles, self.opts)
         elif self.opts.encoder_type == 'ResNetBackboneEncoder':
-            encoder = restyle_psp_encoders.ResNetBackboneEncoder(self.n_styles, self.opts)
+            encoder = restyle_psp_encoders.ResNetBackboneEncoder(
+                self.n_styles, self.opts)
         else:
-            raise Exception(f'{self.opts.encoder_type} is not a valid encoders')
+            raise Exception(
+                f'{self.opts.encoder_type} is not a valid encoders')
         return encoder
 
     def load_weights(self):
         if self.opts.checkpoint_path is not None:
-            print(f'Loading ReStyle pSp from checkpoint: {self.opts.checkpoint_path}')
+            print(
+                f'Loading ReStyle pSp from checkpoint: {self.opts.checkpoint_path}')
             ckpt = torch.load(self.opts.checkpoint_path, map_location='cpu')
-            self.encoder.load_state_dict(self.__get_keys(ckpt, 'encoder'), strict=False)
-            self.decoder.load_state_dict(self.__get_keys(ckpt, 'decoder'), strict=True)
+            self.encoder.load_state_dict(
+                self.__get_keys(ckpt, 'encoder'), strict=False)
+            self.decoder.load_state_dict(
+                self.__get_keys(ckpt, 'decoder'), strict=True)
             self.__load_latent_avg(ckpt)
         else:
             encoder_ckpt = self.__get_encoder_checkpoint()
             self.encoder.load_state_dict(encoder_ckpt, strict=False)
-            print(f'Loading decoder weights from pretrained path: {self.opts.stylegan_weights}')
+            print(
+                f'Loading decoder weights from pretrained path: {self.opts.stylegan_weights}')
             ckpt = torch.load(self.opts.stylegan_weights)
             self.decoder.load_state_dict(ckpt['g_ema'], strict=True)
             self.__load_latent_avg(ckpt, repeat=self.n_styles)
@@ -70,7 +80,8 @@ class pSp(nn.Module):
             for i in latent_mask:
                 if inject_latent is not None:
                     if alpha is not None:
-                        codes[:, i] = alpha * inject_latent[:, i] + (1 - alpha) * codes[:, i]
+                        codes[:, i] = alpha * inject_latent[:, i] + \
+                            (1 - alpha) * codes[:, i]
                     else:
                         codes[:, i] = inject_latent[:, i]
                 else:
@@ -112,8 +123,10 @@ class pSp(nn.Module):
             # Transfer the RGB input of the irse50 network to the first 3 input channels of pSp's encoder
             if self.opts.input_nc != 3:
                 shape = encoder_ckpt['input_layer.0.weight'].shape
-                altered_input_layer = torch.randn(shape[0], self.opts.input_nc, shape[2], shape[3], dtype=torch.float32)
-                altered_input_layer[:, :3, :, :] = encoder_ckpt['input_layer.0.weight']
+                altered_input_layer = torch.randn(
+                    shape[0], self.opts.input_nc, shape[2], shape[3], dtype=torch.float32)
+                altered_input_layer[:, :3, :,
+                                    :] = encoder_ckpt['input_layer.0.weight']
                 encoder_ckpt['input_layer.0.weight'] = altered_input_layer
             return encoder_ckpt
         else:
@@ -122,14 +135,16 @@ class pSp(nn.Module):
             # Transfer the RGB input of the resnet34 network to the first 3 input channels of pSp's encoder
             if self.opts.input_nc != 3:
                 shape = encoder_ckpt['conv1.weight'].shape
-                altered_input_layer = torch.randn(shape[0], self.opts.input_nc, shape[2], shape[3], dtype=torch.float32)
+                altered_input_layer = torch.randn(
+                    shape[0], self.opts.input_nc, shape[2], shape[3], dtype=torch.float32)
                 altered_input_layer[:, :3, :, :] = encoder_ckpt['conv1.weight']
                 encoder_ckpt['conv1.weight'] = altered_input_layer
             mapped_encoder_ckpt = dict(encoder_ckpt)
             for p, v in encoder_ckpt.items():
                 for original_name, psp_name in RESNET_MAPPING.items():
                     if original_name in p:
-                        mapped_encoder_ckpt[p.replace(original_name, psp_name)] = v
+                        mapped_encoder_ckpt[p.replace(
+                            original_name, psp_name)] = v
                         mapped_encoder_ckpt.pop(p)
             return encoder_ckpt
 
@@ -137,5 +152,6 @@ class pSp(nn.Module):
     def __get_keys(d, name):
         if 'state_dict' in d:
             d = d['state_dict']
-        d_filt = {k[len(name) + 1:]: v for k, v in d.items() if k[:len(name)] == name}
+        d_filt = {k[len(name) + 1:]: v for k, v in d.items()
+                  if k[:len(name)] == name}
         return d_filt
