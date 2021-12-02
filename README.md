@@ -49,6 +49,7 @@ Images below are of real people, and were inverted into latent space via Restyle
 Latent optimization
 
 Latent mapper
+![getting-started](image\\image1.png)
 
 Global Direction 
 
