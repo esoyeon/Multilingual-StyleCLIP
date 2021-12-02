@@ -17,7 +17,7 @@ This repository contains:
 -	latent mapper, global direction weights
 -	CelebA-HQ Dataset latents (encoded via Restlye)
 -	Restlye encoder applied over pSp pretrained on the FFHQ dataset
--	Huggingface available transformer M-BERT Base ViT-B (???)
+-	Huggingface available transformer M-BERT Base ViT-B
 -	CLIP
 -	StyleGAN2
 
