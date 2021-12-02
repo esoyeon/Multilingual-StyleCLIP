@@ -1,5 +1,6 @@
 # clip loss
 
+import torch
 import clip
 from models.MultilingualCLIP import multilingual_clip
 
