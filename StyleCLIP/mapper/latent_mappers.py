@@ -2,9 +2,10 @@ import torch
 from torch import nn
 from torch.nn import Module
 
-from models.stylegan2.model import EqualLinear, PixelNorm
+from models.stylegan2.model_styleclip import EqualLinear, PixelNorm
 
-STYLESPACE_DIMENSIONS = [512 for _ in range(15)] + [256, 256, 256] + [128, 128, 128] + [64, 64, 64] + [32, 32]
+STYLESPACE_DIMENSIONS = [512 for _ in range(
+    15)] + [256, 256, 256] + [128, 128, 128] + [64, 64, 64] + [32, 32]
 
 
 class Mapper(Module):
@@ -23,7 +24,6 @@ class Mapper(Module):
             )
 
         self.mapping = nn.Sequential(*layers)
-
 
     def forward(self, x):
         x = self.mapping(x)
@@ -76,10 +76,10 @@ class LevelsMapper(Module):
         else:
             x_fine = torch.zeros_like(x_fine)
 
-
         out = torch.cat([x_coarse, x_medium, x_fine], dim=1)
 
         return out
+
 
 class FullStyleSpaceMapper(Module):
 
@@ -109,10 +109,12 @@ class WithoutToRGBStyleSpaceMapper(Module):
         self.opts = opts
 
         indices_without_torgb = list(range(1, len(STYLESPACE_DIMENSIONS), 3))
-        self.STYLESPACE_INDICES_WITHOUT_TORGB = [i for i in range(len(STYLESPACE_DIMENSIONS)) if i not in indices_without_torgb]
+        self.STYLESPACE_INDICES_WITHOUT_TORGB = [i for i in range(
+            len(STYLESPACE_DIMENSIONS)) if i not in indices_without_torgb]
 
         for c in self.STYLESPACE_INDICES_WITHOUT_TORGB:
-            setattr(self, f"mapper_{c}", Mapper(opts, latent_dim=STYLESPACE_DIMENSIONS[c]))
+            setattr(self, f"mapper_{c}", Mapper(
+                opts, latent_dim=STYLESPACE_DIMENSIONS[c]))
 
     def forward(self, x):
         out = []
@@ -120,7 +122,8 @@ class WithoutToRGBStyleSpaceMapper(Module):
             x_c = x[c]
             if c in self.STYLESPACE_INDICES_WITHOUT_TORGB:
                 curr_mapper = getattr(self, f"mapper_{c}")
-                x_c_res = curr_mapper(x_c.view(x_c.shape[0], -1)).view(x_c.shape)
+                x_c_res = curr_mapper(
+                    x_c.view(x_c.shape[0], -1)).view(x_c.shape)
             else:
                 x_c_res = torch.zeros_like(x_c)
             out.append(x_c_res)

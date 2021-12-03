@@ -19,7 +19,8 @@ def run_on_batch(inputs, net, opts, avg_image):
     results_latent = {idx: [] for idx in range(inputs.shape[0])}
     for iter in range(opts.n_iters_per_batch):
         if iter == 0:
-            avg_image_for_batch = avg_image.unsqueeze(0).repeat(inputs.shape[0], 1, 1, 1)
+            avg_image_for_batch = avg_image.unsqueeze(
+                0).repeat(inputs.shape[0], 1, 1, 1)
             x_input = torch.cat([inputs, avg_image_for_batch], dim=1)
         else:
             x_input = torch.cat([inputs, y_hat], dim=1)

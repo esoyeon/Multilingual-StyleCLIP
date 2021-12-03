@@ -6,7 +6,7 @@ from torch import optim
 from tqdm import tqdm
 from criteria.clip_loss import CLIPLoss
 from criteria.id_loss import IDLoss
-from models.stylegan2.model import Generator
+from models.stylegan2.model_styleclip import Generator
 from models.utils import ensure_checkpoint_exists
 from models.mapper.train_utils import STYLESPACE_DIMENSIONS
 
