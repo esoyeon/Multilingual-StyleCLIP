@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from mapper import latent_mappers
+from models.mapper import latent_mappers
 from models.stylegan2.model_styleclip import Generator
 
 

@@ -9,11 +9,11 @@ from torch.utils.tensorboard import SummaryWriter
 
 from criteria.clip_loss import CLIPLoss
 from criteria import id_loss
-from mapper.datasets.latents_dataset import LatentsDataset, StyleSpaceLatentsDataset
-from mapper.styleclip_mapper import StyleCLIPMapper
-from mapper.training.ranger import Ranger
-from mapper.training import train_utils
-from mapper.training.train_utils import convert_s_tensor_to_list
+from models.mapper.datasets.latents_dataset import LatentsDataset, StyleSpaceLatentsDataset
+from models.mapper.styleclip_mapper import StyleCLIPMapper
+from models.mapper.training.ranger import Ranger
+from models.mapper.training import train_utils
+from models.mapper.training.train_utils import convert_s_tensor_to_list
 
 
 class Coach:
