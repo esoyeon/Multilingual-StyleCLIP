@@ -228,7 +228,7 @@ class Coach:
             loss_dict['id_improve'] = float(sim_improvement)
             loss = loss_id * self.opts.id_lambda
         if self.opts.clip_lambda > 0:
-            loss_clip = self.clip_loss(x_hat, self.text_inputs).mean()
+            loss_clip = self.clip_loss(x_hat).mean()
             loss_dict['loss_clip'] = float(loss_clip)
             loss += loss_clip * self.opts.clip_lambda
         if self.opts.latent_l2_lambda > 0:
