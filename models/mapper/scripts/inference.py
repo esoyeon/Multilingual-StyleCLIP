@@ -1,3 +1,9 @@
+from models.mapper.styleclip_mapper import StyleCLIPMapper
+from models.mapper.options.test_options import TestOptions
+from models.mapper.datasets.latents_dataset import LatentsDataset, StyleSpaceLatentsDataset
+from models.mapper.training.train_utils import convert_s_tensor_to_list
+from tqdm import tqdm
+import time
 import os
 from argparse import Namespace
 
@@ -6,15 +12,8 @@ import numpy as np
 import torch
 from torch.utils.data import DataLoader
 import sys
-import time
-
-from tqdm import tqdm
-
-from mapper.training.train_utils import convert_s_tensor_to_list
-from mapper.datasets.latents_dataset import LatentsDataset, StyleSpaceLatentsDataset
-
-from mapper.options.test_options import TestOptions
-from mapper.styleclip_mapper import StyleCLIPMapper
+sys.path.append(".")
+sys.path.append("..")
 
 
 def run(test_opts):

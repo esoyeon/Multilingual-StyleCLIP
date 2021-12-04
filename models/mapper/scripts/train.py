@@ -1,10 +1,12 @@
+from models.mapper.training.coach import Coach
+from models.mapper.options.train_options import TrainOptions
+import pprint
 import os
 
 import json
 import sys
-import pprint
-from mapper.options.train_options import TrainOptions
-from mapper.training.coach import Coach
+sys.path.append(".")
+sys.path.append("..")
 
 
 def main(opts):
