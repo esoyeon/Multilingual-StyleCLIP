@@ -5,3 +5,5 @@
 /data/weights/
 *.DS_Store
 *.pt
+/.ipynb_checkpoints/
+*/.ipynb_checkpoints/
