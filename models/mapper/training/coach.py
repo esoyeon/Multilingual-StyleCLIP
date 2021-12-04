@@ -54,8 +54,9 @@ class Coach:
                                               self.opts.test_workers),
                                           drop_last=True)
 
-        self.text_inputs = torch.cat(
-            [clip.tokenize(self.opts.description)]).cuda()
+        # self.text_inputs = torch.cat(
+        #     [clip.tokenize(self.opts.description)]).cuda()
+        self.text_inputs = self.opts.description
 
         # Initialize logger
         log_dir = os.path.join(opts.exp_dir, 'logs')
