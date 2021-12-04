@@ -1,7 +1,3 @@
-from models.mapper.styleclip_mapper import StyleCLIPMapper
-from models.mapper.options.test_options import TestOptions
-from models.mapper.datasets.latents_dataset import LatentsDataset, StyleSpaceLatentsDataset
-from models.mapper.training.train_utils import convert_s_tensor_to_list
 from tqdm import tqdm
 import time
 import os
@@ -15,6 +11,10 @@ import sys
 sys.path.append(".")
 sys.path.append("..")
 
+from models.mapper.styleclip_mapper import StyleCLIPMapper
+from models.mapper.options.test_options import TestOptions
+from models.mapper.datasets.latents_dataset import LatentsDataset, StyleSpaceLatentsDataset
+from models.mapper.training.train_utils import convert_s_tensor_to_list
 
 def run(test_opts):
     out_path_results = os.path.join(test_opts.exp_dir, 'inference_results')

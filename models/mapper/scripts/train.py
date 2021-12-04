@@ -1,5 +1,3 @@
-from models.mapper.training.coach import Coach
-from models.mapper.options.train_options import TrainOptions
 import pprint
 import os
 
@@ -8,6 +6,8 @@ import sys
 sys.path.append(".")
 sys.path.append("..")
 
+from models.mapper.training.coach import Coach
+from models.mapper.options.train_options import TrainOptions
 
 def main(opts):
     if not os.path.exists(opts.exp_dir):
