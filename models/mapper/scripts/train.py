@@ -1,12 +1,15 @@
-from models.mapper.options.train_options import TrainOptions
-from models.mapper.training.coach import Coach
-import pprint
-import os
+# fmt: off
 
 import json
+import os
+import pprint
 import sys
 sys.path.append(".")
 sys.path.append("..")
+
+from models.mapper.training.coach import Coach
+from models.mapper.options.train_options import TrainOptions
+# fmt: on
 
 
 def main(opts):

@@ -33,7 +33,7 @@ class Coach:
             self.id_loss = id_loss.IDLoss(self.opts).to(self.device).eval()
         # CLIP Loss
         if self.opts.clip_lambda > 0:
-            self.clip_loss = CLIPLoss()
+            self.clip_loss = CLIPLoss(self.opts)
         if self.opts.latent_l2_lambda > 0:
             self.latent_l2_loss = nn.MSELoss().to(self.device).eval()
 

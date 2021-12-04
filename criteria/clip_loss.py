@@ -7,12 +7,13 @@ from models.MultilingualCLIP import multilingual_clip
 
 class CLIPLoss(torch.nn.Module):
 
-    def __init__(self):
+    def __init__(self, opts):
         super(CLIPLoss, self).__init__()
         self.model, self.preprocess = clip.load("ViT-B/32", device="cuda")
         self.text_model = multilingual_clip.load_model('M-BERT-Base-ViT-B')
         self.upsample = torch.nn.Upsample(scale_factor=7)
         self.avg_pool = torch.nn.AvgPool2d(kernel_size=32)
+        self.opts = opts
 
     def encode_image(self, img):
 
@@ -24,10 +25,10 @@ class CLIPLoss(torch.nn.Module):
     def encode_text(self, txt):
         return self.text_model(txt).cuda()
 
-    def forward(self, img, txt):
+    def forward(self, img):
 
         img_emb = self.encode_image(img)
-        txt_emb = self.encode_text(txt)
+        txt_emb = self.encode_text(self.opts.description)
 
         # normalized features
         image_features = img_emb / img_emb.norm(dim=-1, keepdim=True)
