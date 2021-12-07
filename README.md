@@ -51,11 +51,10 @@ The code relies on the official TensorFlow implementation of StyleGAN2. Facial R
 ### encoder results comparison
 ![encoder 성능 비교](https://user-images.githubusercontent.com/78332579/145041059-835cba4b-604e-4f93-8799-223e0f53e55e.jpg)
 
-Images below are of real people, and were inverted into latent space via Restyle Encoder.
+Images below are from celebA-HQ, and were inverted into latent space via Restyle Encoder.
 ### Latent optimization
 
 ### Latent mapper
-![getting-started](image\\image1.png)
 
 ### Global Direction 
 
