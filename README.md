@@ -53,7 +53,7 @@ The code relies on the official TensorFlow implementation of StyleGAN2. Facial R
 
 Images below are from celebA-HQ, and were inverted into latent space via Restyle Encoder.
 ### Latent optimization
-text prompt "a person with purple hair" in Russian and in Korean.
+- text prompt "a person with purple hair" in Russian and in Korean.
 ![optimization purple hair](https://user-images.githubusercontent.com/78332579/145050220-dbc2cfb8-4492-4792-b8fe-8d1c9f2fe8a4.jpg)
 
 ### Latent mapper
