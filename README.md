@@ -57,6 +57,8 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 ![optimization purple hair](https://user-images.githubusercontent.com/78332579/145050220-dbc2cfb8-4492-4792-b8fe-8d1c9f2fe8a4.jpg)
 
 ### Latent mapper
+- text prompt "a person with purple hair" in Korean and "a face with makeup" in Russian.
+![mapper results](https://user-images.githubusercontent.com/78332579/145152212-567282d7-c640-48ad-8a82-0f896f3c1636.jpg)
 
 ### Global Direction 
 
