@@ -61,4 +61,6 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 ![mapper results](https://user-images.githubusercontent.com/78332579/145152212-567282d7-c640-48ad-8a82-0f896f3c1636.jpg)
 
 ### Global Direction 
+- text prompt "a face with blue eyes" and "man's face" in Korean.
+![global direction results](https://user-images.githubusercontent.com/78332579/145153053-27dfb696-12b6-491d-a97b-edae8675ca97.jpg)
 
