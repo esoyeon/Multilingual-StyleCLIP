@@ -3,7 +3,6 @@ import os
 
 google_drive_paths = {
     "stylegan2-ffhq-config-f.pt": "https://drive.google.com/uc?id=1EM87UquaoQmk17Q8d5kYIAHqu0dkYqdT",
-
     "mapper/pretrained/afro.pt": "https://drive.google.com/uc?id=1i5vAqo4z0I-Yon3FNft_YZOq7ClWayQJ",
     "mapper/pretrained/angry.pt": "https://drive.google.com/uc?id=1g82HEH0jFDrcbCtn3M22gesWKfzWV_ma",
     "mapper/pretrained/beyonce.pt": "https://drive.google.com/uc?id=1KJTc-h02LXs4zqCyo7pzCp0iWeO6T9fz",
@@ -18,8 +17,7 @@ google_drive_paths = {
     "mapper/pretrained/taylor_swift.pt": "https://drive.google.com/uc?id=10jHuHsKKJxuf3N0vgQbX_SMEQgFHDrZa",
     "mapper/pretrained/trump.pt": "https://drive.google.com/uc?id=14v8D0uzy4tOyfBU3ca9T0AzTt3v-dNyh",
     "mapper/pretrained/zuckerberg.pt": "https://drive.google.com/uc?id=1NjDcMUL8G-pO3i_9N6EPpQNXeMc3Ar1r",
-
-    "example_celebs.pt": "https://drive.google.com/uc?id=1VL3lP4avRhz75LxSza6jgDe-pHd2veQG"
+    "example_celebs.pt": "https://drive.google.com/uc?id=1VL3lP4avRhz75LxSza6jgDe-pHd2veQG",
 }
 
 
@@ -36,7 +34,7 @@ def ensure_checkpoint_exists(model_weights_filename):
             print(
                 "gdown module not found.",
                 "pip3 install gdown or, manually download the checkpoint file:",
-                gdrive_url
+                gdrive_url,
             )
 
     if not os.path.isfile(model_weights_filename) and (
@@ -44,6 +42,6 @@ def ensure_checkpoint_exists(model_weights_filename):
     ):
         print(
             model_weights_filename,
-            " not found, you may need to manually download the model weights."
+            " not found, you may need to manually download the model weights.",
         )
 
