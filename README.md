@@ -64,3 +64,8 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 - text prompt "a face with blue eyes" and "man's face" in Korean.
 ![global direction results](https://user-images.githubusercontent.com/78332579/145153053-27dfb696-12b6-491d-a97b-edae8675ca97.jpg)
 
+
+## Acknowledgement
+- ![CLIP](https://openai.com/blog/clip/)
+- ![Multilingual-CLIP](https://github.com/FreddeFrallan/Multilingual-CLIP)
+- ![StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
