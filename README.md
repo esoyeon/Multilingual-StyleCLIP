@@ -27,14 +27,17 @@ The experiment was done in following conditions:
 -	Torch 1.10.0+cu11
 -	Google Colab
 
-# Usage
+
 ## Latent optimization
-The code relies on Rosinality pytorch implementation of StyleGAN2. Facial Recognition weights and pretrained restyle encoder are to be downloaded here.
+The code relies on Rosinality pytorch implementation of StyleGAN2. Facial Recognition weights and pretrained restyle encoder are to be downloaded [here](https://github.com/orpatashnik/StyleCLIP).
 - --description is for the driving text (can be in any language).
 -	To control the manipulation effect, adjust l2 lambda and ID lambda parameters
 
+### Usage
+Given a textual description, one can both edit a given image, or generate a random image that best fits to the description. Both operations can be done through the main.py script, or the optimization_playground.ipynb notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c0h4GVihhUwuT57DW8KI5bi15DSKYAZC#scrollTo=spLeV1kX0EQu).
+
 ## Latent mapper
-The code relies on Rosinality pytorch implementation of StyleGAN2. Facial Recognition weights and pretrained restyle encoder are to be downloaded here.
+The code relies on Rosinality pytorch implementation of StyleGAN2.
 ### training
 -	To resume a training, provide --checkpoint_path.
 -	--description is for the driving text (can be in any language).
@@ -47,7 +50,15 @@ The code relies on Rosinality pytorch implementation of StyleGAN2. Facial Recogn
 ## Global Direction 
 The code relies on the official TensorFlow implementation of StyleGAN2. Facial Recognition weights and pretrained restyle encoder are to be downloaded here.
 
-# Editing Examples
+### Usage
+Open the notebook in colab and run all the cells. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1aa0mXXHiniuLkScEKNYv1URBalNuKmhS#scrollTo=2dalTroRccEr)
+
+In the last cell you can play with the image.
+beta corresponds to the disentanglement threshold, and alpha to the manipulation strength.
+After you set the desired set of parameters, please run again the last cell to generate the image.
+
+
+## Editing Examples
 ### encoder results comparison
 ![encoder 성능 비교](https://user-images.githubusercontent.com/78332579/145041059-835cba4b-604e-4f93-8799-223e0f53e55e.jpg)
 
