@@ -20,7 +20,7 @@ class CLIPLoss(torch.nn.Module):
         return image_emb
 
     def encode_text(self, txt):
-        return self.text_model(args.description).cuda()
+        return self.text_model(txt).cuda()
 
     def forward(self, img, txt):
 
