@@ -66,6 +66,7 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 
 
 ## Acknowledgement
-- ![CLIP](https://openai.com/blog/clip/)
-- ![Multilingual-CLIP](https://github.com/FreddeFrallan/Multilingual-CLIP)
-- ![StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
+- [CLIP](https://openai.com/blog/clip/)
+- [Multilingual-CLIP](https://github.com/FreddeFrallan/Multilingual-CLIP)
+- [StyleCLIP](https://github.com/orpatashnik/StyleCLIP)
+- [HuggingFace](https://huggingface.co/)
