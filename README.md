@@ -1,7 +1,7 @@
 # Multilingual-StyleCLIP
 
-* Global direction playground: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/esoyeon/Multilingual-StyleCLIP/blob/main/ColabSharing/github_styleclip_global.ipynb)
-* Latent optimization playground: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/esoyeon/Multilingual-StyleCLIP/blob/main/ColabSharing/github_styleclip_optimization.ipynb)
+* Global direction playground: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1aa0mXXHiniuLkScEKNYv1URBalNuKmhS#scrollTo=2dalTroRccEr)
+* Latent optimization playground: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1c0h4GVihhUwuT57DW8KI5bi15DSKYAZC#scrollTo=spLeV1kX0EQu)
 * Latent mapper playground: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/esoyeon/Multilingual-StyleCLIP/blob/main/ColabSharing/github_styleclip_mapper.ipynb)
 
 ## Overview
