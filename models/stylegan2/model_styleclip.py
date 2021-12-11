@@ -5,7 +5,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-from models.stylegan2.op_restyle import FusedLeakyReLU, fused_leaky_relu, upfirdn2d
+from models.stylegan2.op_styleclip import FusedLeakyReLU, fused_leaky_relu, upfirdn2d
 
 
 class PixelNorm(nn.Module):
