@@ -43,10 +43,11 @@ The code relies on Rosinality pytorch implementation of StyleGAN2. [![Open In Co
 -	--description is for the driving text (can be in any language).
 -	To control the manipulation effect, adjust l2 lambda and ID lambda parameters
 -	Takes up 10 hours for proper training
-- google drive links for pretrained weights:
-     * ("a person with earings" in french) https://drive.google.com/file/d/1f3pwKzarydCM6gGbF47RlBNIXOaf9zuY/view?usp=sharing
+
 ### Inference
 -	For inference, we provide several pretrained mappers (text prompt in Korean language)
+-	- google drive links for pretrained weights:
+     * ["a person with earings" in french](https://drive.google.com/file/d/1f3pwKzarydCM6gGbF47RlBNIXOaf9zuY/view?usp=sharing)
 
 ## Global Direction 
 The code relies on the official TensorFlow implementation of StyleGAN2. Facial Recognition weights and pretrained restyle encoder are to be downloaded here.
