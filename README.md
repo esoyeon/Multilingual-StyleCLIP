@@ -38,11 +38,20 @@ Given a textual description, one can both edit a given image, or generate a rand
 
 ## Latent mapper
 The code relies on Rosinality pytorch implementation of StyleGAN2. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1dIxgJscjF4_cFXGGVG33NE9NK7Rsw31F)
+
 ### training
+- 이 레포는 restyle encoder가 아닌 e4e encoder로 변환된 데이터셋으로 mapper를 학습시킴
+- 이미지를 restyle encoder로 latent로 바꾼것은 활용가능
+- 학습시킨 데이터셋은 original styleclip repo에서 찾을 수 있음. 
 -	To resume a training, provide --checkpoint_path.
 -	--description is for the driving text (can be in any language).
 -	To control the manipulation effect, adjust l2 lambda and ID lambda parameters
 -	Takes up 10 hours for proper training
+
+```python
+!python models/mapper/scripts/train.py --exp_dir exp_dir --no_fine_mapper --description "보라색 머리카락을 가진 사람" \
+--latents_train_path data/celebA/train_faces.pt --latents_test_path data/celebA/test_faces.pt \
+```
 
 ### Inference
 -	For inference, we provide several pretrained mappers (text prompt in Korean language)
@@ -77,6 +86,12 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 - text prompt "a face with blue eyes" and "man's face" in Korean.
 ![global direction results](https://user-images.githubusercontent.com/78332579/145153053-27dfb696-12b6-491d-a97b-edae8675ca97.jpg)
 
+## To-do List
+- [ ] 모호칸 머리 in 중국어, 스페인어 | global direction
+- [ ] 성별 바꾸기 in 중국어, 스페인어 | global direction
+- [ ] 노인, 보라색머리 in 프랑스어, 러시아어, 일본어, 한국어 | global optimization
+- [ ] 귀걸이 한 사람, 태닝 in 프랑스어, 러시아어, 일본어, 한국어 | mapper 
+- [ ] mapper training with restyle encoder
 
 ## Acknowledgement
 - [CLIP](https://openai.com/blog/clip/)
