@@ -88,7 +88,7 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 
 - Compare results in other languages : English, Korean, Chinese, Spanish
    - Original 
-   <img width="250" alt="original" src="https://user-images.githubusercontent.com/67999107/145793027-836a9bdd-77c3-407c-bb5b-f514dc6736b4.png">
+   - <img width="250" alt="original" src="https://user-images.githubusercontent.com/67999107/145793027-836a9bdd-77c3-407c-bb5b-f514dc6736b4.png">
 
    - Text prompt "a smiling face"
    ![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
