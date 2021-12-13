@@ -43,7 +43,8 @@ The code relies on Rosinality pytorch implementation of StyleGAN2. [![Open In Co
 -	--description is for the driving text (can be in any language).
 -	To control the manipulation effect, adjust l2 lambda and ID lambda parameters
 -	Takes up 10 hours for proper training
-
+- google drive links for pretrained weights:
+     * ("a person with earings" in french) https://drive.google.com/drive/u/0/folders/1--r_jVzaZKlwS7Q-2RtRN8RDk-FMRbic
 ### Inference
 -	For inference, we provide several pretrained mappers (text prompt in Korean language)
 
