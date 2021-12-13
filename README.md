@@ -83,12 +83,17 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 ![mapper results](https://user-images.githubusercontent.com/78332579/145152212-567282d7-c640-48ad-8a82-0f896f3c1636.jpg)
 
 ### Global Direction 
-- text prompt "a face with blue eyes" and "man's face" in Korean.
-![global direction results](https://user-images.githubusercontent.com/78332579/145153053-27dfb696-12b6-491d-a97b-edae8675ca97.jpg)
+- text prompt "a smiling face" and "man's face" in Korean.
+![global_img_1](https://user-images.githubusercontent.com/67999107/145788905-59f83085-3751-41c4-b045-6f36977085c3.png)
+
+- Compare results in other languages : English, Korean, Chinese, Spanish
+1. Text prompt "a smiling face"
+![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
+
+2. Text prompt "a male face"
+![global_img_3](https://user-images.githubusercontent.com/67999107/145790871-4b872bfe-13d8-4da3-a055-7d17347e89b2.png)
 
 ## To-do List
-- [ ] 모호칸 머리 in 중국어, 스페인어 | global direction
-- [ ] 성별 바꾸기 in 중국어, 스페인어 | global direction
 - [ ] 노인, 보라색머리 in 프랑스어, 러시아어, 일본어, 한국어 | global optimization
 - [ ] 귀걸이 한 사람, 태닝 in 프랑스어, 러시아어, 일본어, 한국어 | mapper 
 - [ ] mapper training with restyle encoder
