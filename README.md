@@ -87,11 +87,14 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 ![global_img_1](https://user-images.githubusercontent.com/67999107/145788905-59f83085-3751-41c4-b045-6f36977085c3.png)
 
 - Compare results in other languages : English, Korean, Chinese, Spanish
-1. Text prompt "a smiling face"
-![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
+   - Original 
+   <img width="250" alt="original" src="https://user-images.githubusercontent.com/67999107/145793027-836a9bdd-77c3-407c-bb5b-f514dc6736b4.png">
 
-2. Text prompt "a male face"
-![global_img_3](https://user-images.githubusercontent.com/67999107/145790871-4b872bfe-13d8-4da3-a055-7d17347e89b2.png)
+   - Text prompt "a smiling face"
+   ![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
+
+   - Text prompt "a male face"
+   ![global_img_3](https://user-images.githubusercontent.com/67999107/145790871-4b872bfe-13d8-4da3-a055-7d17347e89b2.png)
 
 ## To-do List
 - [ ] 노인, 보라색머리 in 프랑스어, 러시아어, 일본어, 한국어 | global optimization
