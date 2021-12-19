@@ -40,9 +40,9 @@ Given a textual description, one can both edit a given image, or generate a rand
 The code relies on Rosinality pytorch implementation of StyleGAN2. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1dIxgJscjF4_cFXGGVG33NE9NK7Rsw31F)
 
 ### training
-- 이 레포는 restyle encoder가 아닌 e4e encoder로 변환된 데이터셋으로 mapper를 학습시킴
-- 이미지를 restyle encoder로 latent로 바꾼것은 활용가능
-- 학습시킨 데이터셋은 original styleclip repo에서 찾을 수 있음. 
+- This repository trains the mapper with dataset that was inverted by e4e encoder instead of restyle encoder. 
+- Inferencing on restyle encoder-inverted images works just fine.
+- e4e encoder-inverted dataset is located in the original StyleClip repository.
 -	To resume a training, provide --checkpoint_path.
 -	--description is for the driving text (can be in any language).
 -	To control the manipulation effect, adjust l2 lambda and ID lambda parameters
