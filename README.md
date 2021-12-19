@@ -75,8 +75,17 @@ After you set the desired set of parameters, please run again the last cell to g
 
 Images below are from celebA-HQ, and were inverted into latent space via Restyle Encoder.
 ### Latent optimization
-- text prompt "a person with purple hair" in Russian and in Korean.
-![optimization purple hair](https://user-images.githubusercontent.com/78332579/145050220-dbc2cfb8-4492-4792-b8fe-8d1c9f2fe8a4.jpg)
+- Compare results in other languages : English, Korean, Chinese, Russian
+- Original 
+   <p align="center">
+   <img width="200" alt="original" src="https://user-images.githubusercontent.com/78332579/146683774-45ba513b-9ecf-4613-8572-be62c8e68409.jpg" >
+ </p>
+
+   - Text prompt "old man"
+   ![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
+
+   - Text prompt "purple hair"
+   ![global_img_3](https://user-images.githubusercontent.com/67999107/145790871-4b872bfe-13d8-4da3-a055-7d17347e89b2.png)
 
 ### Latent mapper
 - text prompt "a person with purple hair" in Korean and "a face with makeup" in Russian.
