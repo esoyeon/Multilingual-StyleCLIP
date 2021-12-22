@@ -84,8 +84,9 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
    - Text prompt "old man"
    ![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
 
-   - Text prompt "purple hair"
-   ![global_img_3](https://user-images.githubusercontent.com/67999107/145790871-4b872bfe-13d8-4da3-a055-7d17347e89b2.png)
+   - Text prompt "a person with purple hair"
+   ![global_img_3](https://user-images.githubusercontent.com/78332579/147036304-e5589083-d2cf-4b87-92ae-d79a863214cc.jpg)
+
 
 ### Latent mapper
 - text prompt "a person with purple hair" in Korean and "a face with makeup" in Russian.
