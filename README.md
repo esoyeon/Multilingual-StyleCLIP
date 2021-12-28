@@ -81,9 +81,6 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
    <img width="200" alt="original" src="https://user-images.githubusercontent.com/78332579/146683774-45ba513b-9ecf-4613-8572-be62c8e68409.jpg" >
  </p>
 
-   - Text prompt "old man"
-   ![global_img_2](https://user-images.githubusercontent.com/67999107/145790847-c0d625ed-17f4-4aeb-991c-c6f491ed5807.png)
-
    - Text prompt "a person with purple hair"
    ![global_img_3](https://user-images.githubusercontent.com/78332579/147036304-e5589083-d2cf-4b87-92ae-d79a863214cc.jpg)
 
