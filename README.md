@@ -86,8 +86,14 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
 
 
 ### Latent mapper
-- text prompt "a person with purple hair" in Korean and "a face with makeup" in Russian.
-![mapper results](https://user-images.githubusercontent.com/78332579/145152212-567282d7-c640-48ad-8a82-0f896f3c1636.jpg)
+- Compare results in other languages : English, Korean, Russian, Japanese
+- Original 
+   <p align="center">
+   <img width="200" alt="original" src="https://user-images.githubusercontent.com/78332579/147733646-28e8a50f-f0e1-496c-b95b-6ab527e9301f.jpg" >
+ </p>
+
+   - Text prompt "a child"
+   ![global_img_3](https://user-images.githubusercontent.com/78332579/147733681-a68032b8-15bb-4f3b-a00b-2d824f9ec4be.jpg)
 
 ### Global Direction 
 - text prompt "a smiling face" and "man's face" in Korean.
