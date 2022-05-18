@@ -111,10 +111,6 @@ Images below are from celebA-HQ, and were inverted into latent space via Restyle
    - Text prompt "a male face"
    ![global_img_3](https://user-images.githubusercontent.com/67999107/145790871-4b872bfe-13d8-4da3-a055-7d17347e89b2.png)
 
-## To-do List
-- [ ] 노인, 보라색머리 in 프랑스어, 러시아어, 일본어, 한국어 | global optimization
-- [ ] 귀걸이 한 사람, 태닝 in 프랑스어, 러시아어, 일본어, 한국어 | mapper 
-- [ ] mapper training with restyle encoder
 
 ## Acknowledgement
 - [CLIP](https://openai.com/blog/clip/)
